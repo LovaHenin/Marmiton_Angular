@@ -1,0 +1,25 @@
+<button (click)="surClick()" type="button" class="btn btn-primary">
+  {{ affiche ? "Cacher le detail" : "Voir la recette" }}
+</button>
+<div class="container d-flex justify-content-center mt-3">
+  <button (mouseenter)="surClick1()" (mouseout)="reset1()" type="button" class="gauche btn btn-primary">
+    temps prepa/cuisson
+  </button>
+  <button (mouseenter)="surClick2()" (mouseout)="reset2()"  type="button" class="btn btn-primary">
+    Cout/Difficulté
+  </button>
+</div>
+<div *ngIf="affiche">
+  <p class="card-text"><span>descriptif :</span>{{ descriptif }}</p>
+  <p class="card-text"><span> ingrédients :</span> {{ ingredients }}</p>
+  <p class="card-text"><span>Etapes :</span>{{ etapes }}</p>
+</div>
+  <div *ngIf="affiche1">
+    <p class="card-text"><span>Temps Prep :</span> {{ prep }}</p>
+    <p class="card-text"><span> Temps de Cuisson :</span>{{ cuisson }}</p>
+  </div>
+  <div *ngIf="affiche2">
+    <p class="card-text"><span>Cout :</span>{{ cout }}</p>
+    <p class="card-text"><span>Niveau :</span>{{ difficulte }}</p>
+  </div>
+

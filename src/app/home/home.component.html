@@ -1,0 +1,23 @@
+<h1>Recettes</h1>
+<div class="container d-flex justify-content-between">
+  <div *ngFor="let recette of recettes">
+    <div class="card" style="width: 18rem">
+      <img src="{{ recette.photo }}" class="card-img-top" alt="" />
+      <div class="card-body">
+        <h5 class="card-title">{{ recette.titre }}</h5>
+
+        <app-boutton-detail
+          [descriptif]="recette.descriptif"
+          [prep]="recette.tempsPrep"
+          [cuisson]="recette.tempsCuisson"
+          [difficulte]="recette.difficulte"
+          [cout]="recette.cout"
+          [affiche]="affiche"
+          [ingredients]="recette.ingredient"
+          [etapes]="recette.etapes"
+        >
+        </app-boutton-detail>
+      </div>
+    </div>
+  </div>
+</div>
