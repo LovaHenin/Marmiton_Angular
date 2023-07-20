@@ -6,20 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  // variable à utiliser chez la classe fille=>input dans la classe enfant boutton-detail
   affiche=false;
   affiche1=false;
   affiche2=false;
-// butAffiche='Affiche detail';
 
-// surClick(){
-
-//   this.affiche=!this.affiche;
-  // if (this.affiche){
-  //   this.butAffiche='cacher detail';
-  // }else{
-  //   this.butAffiche='Affiche detail';
-  // }
- 
 
 
 recettes=[

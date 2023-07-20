@@ -1,3 +1,4 @@
+//ajout de Input dans import pour importer les variabbles de la classe parents
 import { Component,Input } from '@angular/core';
 
 @Component({
@@ -7,8 +8,8 @@ import { Component,Input } from '@angular/core';
 })
 export class BouttonDetailComponent {
 
-
-  @Input() difficulte:any
+// appel de tous les variables de la classe parent home
+@Input() difficulte:any
 @Input()  prep:any
 @Input()  descriptif:any
 @Input()  cuisson:any

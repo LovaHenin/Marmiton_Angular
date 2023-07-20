@@ -1,3 +1,4 @@
+//=> à verifier que c ajouter dans app.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Routes } from '@angular/router';
@@ -5,8 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 
 const routes:Routes =[
-{ path:"", component: HomeComponent },// ""=>home si path:"test"=> localhost:4020/test
-{path:"formRecipe", component:RecipeFormComponent}// la classe du component
+{ path:"", component: HomeComponent },// ""=>home si path:"test"=> localhost:4020/test=>ajouter dans nav=>routerLink="/">Accueil</a>
+{path:"formRecipe", component:RecipeFormComponent}// la classe du component=>ajouter dans nav=>routerLink="/formRecipe">J'ajoute ma recette</a>
 
 
 
@@ -16,7 +17,7 @@ const routes:Routes =[
 
 
 @NgModule({
-  declarations: [],
+  declarations: [], // ajouter en premier pour avoir la liste dans path ou autre
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
