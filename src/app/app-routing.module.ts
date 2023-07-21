@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule,Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
+import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
 
 const routes:Routes =[
 { path:"", component: HomeComponent },// ""=>home si path:"test"=> localhost:4020/test=>ajouter dans nav=>routerLink="/">Accueil</a>
-{path:"formRecipe", component:RecipeFormComponent}// la classe du component=>ajouter dans nav=>routerLink="/formRecipe">J'ajoute ma recette</a>
+{path:"formRecipe", component:RecipeFormComponent},// la classe du component=>ajouter dans nav=>routerLink="/formRecipe">J'ajoute ma recette</a>
+{path:"formRecipe/:id", component:RecipeFormComponent},// pour modification
+{path:"listRecipe",component: ListeRecipeComponent}
 
 
 

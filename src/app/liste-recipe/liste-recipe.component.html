@@ -1,0 +1,14 @@
+
+<div *ngFor="let recette of recipes" class="p-0 m-3 card col-md-4 mt-3" style="width: 18rem;">
+    <img src="{{ recette.photo }}" class=" card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ recette.titre }}</h5>
+      <p class="card-text">{{ recette.descriptif }}</p>
+    </div>
+    <div class="card-body">
+      <a  class="card-link btn btn-success">Voir la recette</a>
+      <!-- renvoie vers la page  formulaire d'ajout recip-form.component-->
+      <a [routerLink]="['/formRecipe/',recette.id]" class="card-link btn btn-success">Modifier</a>
+      <a (click)="delete(recette.id)" class="card-link btn btn-success">Supprimer</a>
+    </div>
+  </div>

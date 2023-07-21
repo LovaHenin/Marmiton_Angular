@@ -16,6 +16,7 @@ export class HomeComponent {
 recettes=[
 {
 titre:'Tartiflette',
+
 descriptif:'Super recette pour l\' été',
 ingredient:['10 patates','2 reblochons','2 oignons', '300g de lardons','20cl de crème liquide'],
 difficulte:'Debutant',

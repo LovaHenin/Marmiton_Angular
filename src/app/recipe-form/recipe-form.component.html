@@ -1,13 +1,13 @@
 <h1>Ajouter une recette</h1>
-<form #form="ngForm" class="col-6  m-auto p-3"  (submit)="formulaire(form)" >
+<form #form="ngForm" class="col-6  m-auto p-3"  (submit)="formulaire(form,id)" >
 
   <div class="form-group">
     <label for="titre">Titre</label>
-    <input ngModel type="text" class="form-control" id="titre" name="titre" />
+    <input [(ngModel)]="recette.titre" type="text" class="form-control" id="titre" name="titre" />
   </div>
   <div class="form-group">
     <label for="difficulte">Dificulté</label>
-    <select ngModel class="form-control" id="difficulte" name="difficulte">
+    <select [(ngModel)]="recette.difficulte" class="form-control" id="difficulte" name="difficulte">
       <option value="facile">facile</option>
       <option value="moyen">Moyen</option>
       <option value="expert">expert</option>
@@ -15,19 +15,19 @@
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input ngModel type="text" class="form-control" id="description" name="descriptif" />
+    <input [(ngModel)]="recette.descriptif" type="text" class="form-control" id="description" name="descriptif" />
   </div>
   <div class="form-group">
     <label for="preparation">Temps Préparation</label>
-    <input ngModel type="text" class="form-control" id="preparation" name="tempsPrep" />
+    <input [(ngModel)]="recette.tempsPrep" type="text" class="form-control" id="preparation" name="tempsPrep" />
   </div>
   <div class="form-group">
     <label for="cooking">Temps Cuisson</label>
-    <input ngModel type="text" class="form-control" id="cooking" name="tempsCuisson" />
+    <input [(ngModel)]="recette.tempsCuisson" type="text" class="form-control" id="cooking" name="tempsCuisson" />
   </div>
   <div class="form-group">
     <label for="cout">Cout</label>
-    <select ngModel class="form-control" id="cout" name="cout">
+    <select [(ngModel)]="recette.cout" class="form-control" id="cout" name="cout">
       <option value="abordable">abordable</option>
       <option value="correct">corect</option>
       <option value="excessif">excessif</option>
@@ -35,7 +35,7 @@
   </div>
   <div class="form-group">
     <label for="photo">Photo:</label>
-    <input ngModel type="text" class="form-control-file" id="photo" name="photo">
+    <input [(ngModel)]="recette.photo" type="text" class="form-control-file" id="photo" name="photo">
   </div>
   <button type="submit" class="btn mt-3 btn-primary">Ajouter</button>
 </form>

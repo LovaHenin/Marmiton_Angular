@@ -8,6 +8,7 @@ import { BouttonDetailComponent } from './boutton-detail/boutton-detail.componen
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { FormsModule } from '@angular/forms';
+import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     HomeComponent,
     BouttonDetailComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    ListeRecipeComponent
   ],
   imports: [
     BrowserModule,
