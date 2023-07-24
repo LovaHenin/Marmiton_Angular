@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RecetteService } from '../services/recette.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategorieService } from '../services/categorie.service';
 
 @Component({
   selector: 'app-recipe-form',
@@ -12,13 +13,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RecipeFormComponent {
   constructor(
     private rs: RecetteService,
+    private rs1:CategorieService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
-
+  categories: any;
   id: string | null = '0'; // pipe | ou null
   recette={
     titre:'',
+    categorie:'',
     descriptif:'',
     ingredient:[],
     difficulte:'',
@@ -30,6 +33,7 @@ export class RecipeFormComponent {
 
 
   };
+
 
   formulaire(form: NgForm, id:any) {
     //tester  le retour de form
@@ -47,9 +51,12 @@ export class RecipeFormComponent {
   }
   //ajouter dans import OnInit => recuperer l id et choisir entre ajout et modif
   ngOnInit() {
+    this.categories = this.rs1.readCategories();
+   // console.log("coucou" + this.categories);
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id!=null) {
       this.recette = this.rs.readOneRecipe(this.id);
+     
     }
   }
 }

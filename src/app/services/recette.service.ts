@@ -25,7 +25,7 @@ export class RecetteService {
       // qui recrée un tableau avec le nombre d'entrées demandées ici 1
       //on accede à son indice ici 0 puis à sa propriete id
       // on incrémente de 1 pour créer le prochain id
-      let id = this.recipes.slice(-1)[0]['id'] + 1; // derniere  objet entrée
+      let id = this.recipes.slice(-1)[0]['id'] + 1; // derniere  objet entrée, recuperation de Id
 
       this.recipes.push({ id: id, ...recipe });
 
@@ -54,7 +54,7 @@ export class RecetteService {
     this.recipes = JSON.parse(sessionStorage.getItem('recipes')!);
     for (let i = 0; i < this.recipes.length; i++) {
       if (this.recipes[i]['id'] == id) {
-        return this.recipes[i];
+        return this.recipes[i]; // retourne juste un objet
       }
     }
   }

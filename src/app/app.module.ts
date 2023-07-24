@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { FormsModule } from '@angular/forms';
 import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { ListeCategorieComponent } from './liste-categorie/liste-categorie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
     HomeComponent,
     BouttonDetailComponent,
     RecipeFormComponent,
-    ListeRecipeComponent
+    ListeRecipeComponent,
+    CategoriesComponent,
+    ListeCategorieComponent
   ],
   imports: [
     BrowserModule,

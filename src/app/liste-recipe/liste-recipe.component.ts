@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetteService } from '../services/recette.service';
+import { CategorieService } from '../services/categorie.service';
 
 @Component({
   selector: 'app-liste-recipe',
@@ -8,9 +9,13 @@ import { RecetteService } from '../services/recette.service';
 })
 export class ListeRecipeComponent {
   // constructeur pour utiliser le service
-  constructor(private rs: RecetteService) {}
+  constructor(
+    private rs: RecetteService,
+    private rs1:CategorieService,
+    ) {}
 
   recipes: any;
+  categories: any;
 
   delete(id: any) {
     this.rs.deleteRecipe(id);
@@ -21,5 +26,7 @@ export class ListeRecipeComponent {
   ngOnInit(): void {
     // recuperer recipes de la session via service
     this.recipes = this.rs.readRecipes();
+    // recuperer les categories dans categorie.service
+    this.categories = this.rs1.readCategories();
   }
 }
