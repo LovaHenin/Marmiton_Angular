@@ -1,26 +1,43 @@
 <div class="form-group">
-  <label for="categorie">Afficher par Catégorie</label>
-  <select  class="form-control w-25" id="categorie" name="categorie" >
-    <option *ngFor="let categorie of categories" [value]="categorie.nom">{{categorie.nom}}</option>
-
+  <select
+    class="form-control w-25"
+    id="categorie"
+    name="categorie"
+    [(ngModel)]="selectedOption"
+    (ngModelChange)="onOptionSelected($event)"
+  >
+    <option selected disabled>Choisir une categorie</option>
+    <option *ngFor="let categorie of categories" [value]="categorie.id">
+      {{ categorie.nom }}
+    </option>
   </select>
 
-<div class="container">
-  <div class="row container d-flex justify-content-between">
-
-    <div *ngFor="let recette of recipes" class="p-0 m-3 card col-md-4 mt-3" style="width: 18rem;">
-      <img src="{{ recette.photo }}" class=" card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ recette.titre }}</h5>
-        <p class="card-text">{{ recette.descriptif }}</p>
-      </div>
-      <div class="card-body">
-        <a  class="card-link btn btn-success">Voir la recette</a>
-        <!-- renvoie vers la page  formulaire d'ajout recip-form.component-->
-        <a [routerLink]="['/formRecipe/',recette.id]" class="card-link btn btn-success">Modifier</a>
-        <a (click)="delete(recette.id)" class="card-link btn btn-success">Supprimer</a>
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <div
+        *ngFor="let recette of recipes"
+        class="p-0 m-3 card col-md-4 mt-3"
+        style="width: 28rem"
+      >
+        <img src="{{ recette.photo }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ recette.titre }}</h5>
+          <p class="card-text">{{ recette.descriptif }}</p>
+        </div>
+        <div class="card-body">
+          <a [routerLink]="['/ingredients/','ajout', recette.id]" class="card-link btn btn-success">Ajouter des ingrédients</a>
+          <a class="card-link btn btn-success">Voir les ingrédients</a>
+          <!-- renvoie vers la page  formulaire d'ajout recip-form.component-->
+          </div>
+          <div class="card-body">
+          <a
+            [routerLink]="['/formRecipe/', recette.id]"
+            class="card-link btn btn-success">Modifier</a>
+          <a
+            (click)="delete(recette.id)"
+            class="card-link btn btn-success ">Supprimer</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-

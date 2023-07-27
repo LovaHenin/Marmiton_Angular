@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class RecetteService {
   constructor() {}
-
+  recipes1: any = Array();
   recipes: any = Array();
   createRecipe(recipe: JSON): any {
     // return sessionStorage.removeItem('recipes'); // pour vider la session
@@ -75,5 +75,15 @@ export class RecetteService {
       sessionStorage.removeItem('recipes');
     }
     
+  }
+  afficheCategorie(id:any){
+    this.recipes = JSON.parse(sessionStorage.getItem('recipes')!);
+    
+      for (let i = 0; i < this.recipes.length; i++) {
+        if (this.recipes[i]['id'] == id) {
+      return  this.recipes1 =this.recipes[i];
+        }
+      }
+  
   }
 }

@@ -7,6 +7,8 @@ import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ListeCategorieComponent } from './liste-categorie/liste-categorie.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
+import { ListeIngredientComponent } from './liste-ingredient/liste-ingredient.component';
 
 const routes:Routes =[
 { path:"", component: HomeComponent },// ""=>home si path:"test"=> localhost:4020/test=>ajouter dans nav=>routerLink="/">Accueil</a>
@@ -14,7 +16,11 @@ const routes:Routes =[
 {path:"formRecipe/:id", component:RecipeFormComponent},// pour modification
 {path:"listRecipe",component: ListeRecipeComponent},
 {path:"categories",component: CategoriesComponent},
-{path:"categories/:id",component: CategoriesComponent},
+{path:"listRecipe/:id",component: IngredientComponent},
+{path:"ingredients",component: IngredientComponent},
+{path:"listeIngredients",component:ListeIngredientComponent},
+{path:"ingredients/:ajout/:id",component: IngredientComponent},
+{path:"ingredients/:modif/:id",component: IngredientComponent},
 {path:"listeCategories",component: ListeCategorieComponent}
 
 

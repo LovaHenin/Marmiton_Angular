@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetteService } from '../services/recette.service';
 import { CategorieService } from '../services/categorie.service';
+import { HttpService } from '../services/API/http.service';
 
 @Component({
   selector: 'app-liste-recipe',
@@ -10,23 +11,48 @@ import { CategorieService } from '../services/categorie.service';
 export class ListeRecipeComponent {
   // constructeur pour utiliser le service
   constructor(
+    private http:HttpService,
     private rs: RecetteService,
-    private rs1:CategorieService,
+ 
     ) {}
-
+   
+  recipes1: any[]=[];
   recipes: any;
   categories: any;
 
   delete(id: any) {
-    this.rs.deleteRecipe(id);
-    // refress=> recharge de DOM
-    this.ngOnInit();
+    this.http.deleteData("recette",id).subscribe({
+      next:(data)=> this.getData(),
+      error:(err:Error)=>console.error('Observer got an error:' +err),
+      complete:()=>console.log('suppression effectuée')
+    });
+   
   }
+
+
+
   //ajouter dans import
   ngOnInit(): void {
     // recuperer recipes de la session via service
-    this.recipes = this.rs.readRecipes();
-    // recuperer les categories dans categorie.service
-    this.categories = this.rs1.readCategories();
+  
+    this.getData();
+  }
+  selectedOption: any; // Vous pouvez déclarer ici le type approprié pour l'id (number, string, etc.)
+
+  onOptionSelected(selectedId: number) {
+        // Faites quelque chose en fonction de l'id sélectionné
+        console.log('ID sélectionné :', selectedId);
+   
+   this.recipes1=(this.rs.afficheCategorie(selectedId));
+   console.log(this.recipes1);
+   
+  }
+
+  getData(){
+    this.http.getData("recette").subscribe({
+      next:(data)=> this.recipes=data,
+      error:(err:Error)=>console.error('Observer got an error:' +err),
+      complete:()=>console.log('Observer got a complete notification')
+    });
   }
 }

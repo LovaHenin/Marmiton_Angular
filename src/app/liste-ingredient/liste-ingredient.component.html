@@ -1,0 +1,24 @@
+<table class="table table-dark table-striped w-75 mx-auto">
+    <thead>
+    <tr>
+        <th> Ingrédients</th>
+        <th> Quantité(s)</th>
+        <th> Unité(s)</th>
+        <th class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let ingredient of ingredients">
+    
+        <tr>
+            <td>{{ ingredient.titre }} </td>
+            <td>{{ ingredient.quantite }} </td>
+            <td>{{ ingredient.unite }} </td>
+            <td class="text-center">
+                <a [routerLink]="['/ingredients/','modif',ingredient.id]" class="btn btn-outline-info">Modifier</a>
+                <a  (click)="delete(ingredient.id)"  onclick="return confirm('Etes-vous sûr?')"
+                   class="btn btn-outline-danger">Supprimer</a>
+            </td>
+        </tr>
+    
+    </tbody>
+</table>

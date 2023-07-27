@@ -8,7 +8,7 @@
     <tbody *ngFor="let categorie of categories">
     
         <tr>
-            <td>{{ categorie.nom }} </td>
+            <td>{{ categorie.titre }} </td>
             <td class="text-center">
                 <a [routerLink]="['/categories/',categorie.id]" class="btn btn-outline-info">Modifier</a>
                 <a (click)="delete(categorie.id)" onclick="return confirm('Etes-vous sûr?')"

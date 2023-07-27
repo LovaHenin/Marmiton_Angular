@@ -1,46 +1,42 @@
-import { Component } from '@angular/core';
-import { CategorieService } from '../services/categorie.service';
+import { Component,OnInit } from '@angular/core';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AsyncService } from '../services/API/async.service';
+
+import { HttpService } from '../services/API/http.service';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  styleUrls: ['./categories.component.css'],
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
   constructor(
-    private rs : CategorieService,
+    async: AsyncService,
+    private http: HttpService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  wait: any;
   id: string | null = '0'; // pipe | ou null
-  categorie={
-    nom:'',
- 
+  categorie = {
+    titre: '',
   };
-  formulaire(form: NgForm, id:any) {
-    //tester  le retour de form
-    console.log(form.value);
-    
-   //console.log(id);
-    if(id==null){
-   //   console.log('coucou');
-      let test = this.rs.createCategorie(form.value);
+  formulaire(form: NgForm, id: any) {
 
-    } else{
-      this.rs.updateCategorie(form.value,id);
-    }
+this.http.postData("categorie",form.value).subscribe({
+  next:(data)=>console.log(data),
+  error:(err:Error)=>console.error('Observer got an error:' +err),
+  complete:()=>console.log('Observer got a complete notification')
+});
+
     this.router.navigate(['listeCategories']);
-    // gerer le routage => apres ajout recette => vers la listeRecipe=>il faut ajouter la variable private router:Router dans constructor
-  
-    //console.log(test);
   }
-   //ajouter dans import OnInit => recuperer l id et choisir entre ajout et modif
-   ngOnInit() {
+
+  ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id!=null) {
-      this.categorie = this.rs.readOneCategorie(this.id);
+    if (this.id != null) {
     }
   }
 }

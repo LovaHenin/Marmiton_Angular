@@ -2,8 +2,8 @@
 <form #form="ngForm" class="col-6  m-auto p-3" (submit)="formulaire(form,id)">
 
     <div class="form-group">
-      <label for="nom">Catégorie</label>
-      <input [(ngModel)]="categorie.nom"  type="text" class="form-control" id="nom" name="nom" />
+      <label for="titre">Catégorie</label>
+      <input [(ngModel)]="categorie.titre"  type="text" class="form-control" id="titre" name="titre" />
     </div>
     
     <button type="submit" class="btn mt-3 btn-primary">Valider</button>

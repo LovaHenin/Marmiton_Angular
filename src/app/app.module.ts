@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { ListeRecipeComponent } from './liste-recipe/liste-recipe.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ListeCategorieComponent } from './liste-categorie/liste-categorie.component';
+import { HttpClientModule } from '@angular/common/http';
+import { IngredientComponent } from './ingredient/ingredient.component';
+import { ListeIngredientComponent } from './liste-ingredient/liste-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { ListeCategorieComponent } from './liste-categorie/liste-categorie.compo
     RecipeFormComponent,
     ListeRecipeComponent,
     CategoriesComponent,
-    ListeCategorieComponent
+    ListeCategorieComponent,
+    IngredientComponent,
+    ListeIngredientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
