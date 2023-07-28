@@ -10,7 +10,7 @@
     <input [(ngModel)]="ingredient.quantite" type="text" class="form-control" id="quantite" name="quantite" />
   </div>
   <input type="hidden" name="id" [(ngModel)]="ingredient.id">
-  <input type="hidden" name="id_recette" [(ngModel)]="id">
+  <input type="hidden" name="id_recette" [(ngModel)]="ingredient.id_recette">
   <div class="form-group">
     <label for="unite">Unité</label>
     <select [(ngModel)]="ingredient.unite" class="form-control" id="unite" name="unite" >

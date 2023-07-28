@@ -21,6 +21,19 @@ if(id!=null){
 }
 }
 
+// comme fetch et fecthAll
+getDataIngredient(table:string,id:any=null):Observable<any>{
+   
+  if(id!=null){
+    return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readIngredients&id='+id);
+  
+  }else{
+  
+    return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readAll');
+  }
+  }
+
+
 
   deleteData(table:string,id:any):Observable<any>{
  return this.http.post('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=delete&id='+id, {});

@@ -1,16 +1,4 @@
 <div class="form-group">
-  <select
-    class="form-control w-25"
-    id="categorie"
-    name="categorie"
-    [(ngModel)]="selectedOption"
-    (ngModelChange)="onOptionSelected($event)"
-  >
-    <option selected disabled>Choisir une categorie</option>
-    <option *ngFor="let categorie of categories" [value]="categorie.id">
-      {{ categorie.nom }}
-    </option>
-  </select>
 
   <div class="container">
     <div class="row d-flex justify-content-between">
@@ -21,22 +9,29 @@
       >
         <img src="{{ recette.photo }}" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">{{ recette.titre }}</h5>
-          <p class="card-text">{{ recette.descriptif }}</p>
+          <h5 class="card-title text-center">{{ recette.titre }}</h5>
+       
         </div>
-        <div class="card-body">
-          <a [routerLink]="['/ingredients/','ajout', recette.id]" class="card-link btn btn-success">Ajouter des ingrédients</a>
-          <a class="card-link btn btn-success">Voir les ingrédients</a>
+        <div class="card-body text-center">
+        <a
+            [routerLink]="['/ingredients/','ajout', recette.id]"
+            class="card-link btn btn-success btn-block w-50">Ajouter des ingrédients</a>
+            </div>
+        <div class="card-body text-center">
+          <a
+            [routerLink]="['/ingredients/','ajout', recette.id]"
+            class="card-link btn btn-success btn-block ">Voir les étapes</a>
+          <a [routerLink]="['/detailIngredient/', recette.id]" class="card-link btn btn-success btn-block ">Voir les ingrédients</a>
           <!-- renvoie vers la page  formulaire d'ajout recip-form.component-->
-          </div>
-          <div class="card-body">
+        </div>
+        <div class="card-body text-center">
           <a
             [routerLink]="['/formRecipe/', recette.id]"
-            class="card-link btn btn-success">Modifier</a>
-          <a
-            (click)="delete(recette.id)"
-            class="card-link btn btn-success ">Supprimer</a>
+            class="card-link btn btn-success btn-block "
+            >Modifier</a>
+          <a (click)="delete(recette.id)" class="card-link btn btn-success btn-block" >Supprimer</a>
         </div>
+       
       </div>
     </div>
   </div>

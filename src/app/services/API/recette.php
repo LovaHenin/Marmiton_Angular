@@ -23,6 +23,7 @@ if($_GET['action']=='readAll'){
     echo json_encode($data);
  
 }
+
 if($_GET['action']=='readOne'){
     $sql=" SELECT r.*,c.titre FROM categorie c INNER JOIN recette r ON r.id_categorie=c.id WHERE r.id=:id";
     $result=$pdo->prepare($sql);

@@ -30,6 +30,15 @@ if($_GET['action']=='readOne'){
  
 }
 
+if($_GET['action']=='readIngredients'){
+    $sql=" SELECT i.* FROM ingredient i INNER JOIN recette r ON r.id=i.id_recette WHERE i.id_recette=:id";
+    $result=$pdo->prepare($sql);
+    $result->execute([':id'=>$_GET['id']]);
+    $data=$result->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($data);
+ 
+}
+
 
 if($_GET['action']=='delete'){
     $sql=" DELETE FROM ingredient WHERE id=:id";

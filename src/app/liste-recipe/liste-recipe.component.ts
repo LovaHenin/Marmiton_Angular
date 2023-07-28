@@ -15,10 +15,11 @@ export class ListeRecipeComponent {
     private rs: RecetteService,
  
     ) {}
-   
+  affiche=false;
   recipes1: any[]=[];
   recipes: any;
   categories: any;
+  ingredients: any;
 
   delete(id: any) {
     this.http.deleteData("recette",id).subscribe({
@@ -36,7 +37,12 @@ export class ListeRecipeComponent {
     // recuperer recipes de la session via service
   
     this.getData();
+
+   //console.log(this.ingredients);
+   this.getIngredients();
+
   }
+
   selectedOption: any; // Vous pouvez déclarer ici le type approprié pour l'id (number, string, etc.)
 
   onOptionSelected(selectedId: number) {
@@ -44,7 +50,7 @@ export class ListeRecipeComponent {
         console.log('ID sélectionné :', selectedId);
    
    this.recipes1=(this.rs.afficheCategorie(selectedId));
-   console.log(this.recipes1);
+   //console.log(this.recipes1);
    
   }
 
@@ -55,4 +61,14 @@ export class ListeRecipeComponent {
       complete:()=>console.log('Observer got a complete notification')
     });
   }
+
+ getIngredients(){
+  this.http.getDataIngredient("ingredient",2).subscribe({
+    next:(data)=> this.ingredients=data,
+    error:(err:Error)=>console.error('Observer got an error:' +err),
+    complete:()=>console.log('Observer got a complete notification' )
+  });
+ }
+  
+
 }

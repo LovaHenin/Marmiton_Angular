@@ -14,6 +14,7 @@ import { ListeCategorieComponent } from './liste-categorie/liste-categorie.compo
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { ListeIngredientComponent } from './liste-ingredient/liste-ingredient.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ListeIngredientComponent } from './liste-ingredient/liste-ingredient.co
     CategoriesComponent,
     ListeCategorieComponent,
     IngredientComponent,
-    ListeIngredientComponent
+    ListeIngredientComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

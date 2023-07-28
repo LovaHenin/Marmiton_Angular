@@ -63,6 +63,7 @@ export class IngredientComponent implements OnInit {
         complete:()=>console.log("success")
       });
     }else{
+      this.ingredient.id_recette=this.id;
       this.id=0;
     }
   }
