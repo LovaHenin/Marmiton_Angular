@@ -1,0 +1,33 @@
+<h1>Menu Favoris</h1>
+<div class="form-group">
+  <div class="container">
+    <div class="row d-flex justify-content-between">
+      <div
+        *ngFor="let favori of favoris"
+        class="p-0 m-3 card col-md-4 mt-3"
+        style="width: 28rem"
+      >
+        <img src="{{ favori.photo }}" class="card-img-top" alt="..." />
+
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ favori.titre }}</h5>
+        </div>
+
+        <div class="card-body text-center">
+          <a
+            [routerLink]="['/etape/', favori.id]"
+            class="card-link btn btn-success btn-block"
+            >Les étapes</a
+          >
+          <a
+            [routerLink]="['/detailIngredient/', favori.id]"
+            class="card-link btn btn-success btn-block"
+            >Voir les ingrédients</a
+          >
+          <!-- renvoie vers la page  formulaire d'ajout recip-form.component-->
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>

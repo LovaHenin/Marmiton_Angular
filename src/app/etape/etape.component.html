@@ -1,0 +1,37 @@
+<h1>Ajouter une étape </h1>
+<form #form="ngForm" class="col-6  m-auto p-3"  (submit)="formulaire(form)" >
+
+  <div class="form-group">
+    <label for="titre">Titre</label>
+    <input [(ngModel)]="etape.titre" type="text" class="form-control" id="titre" name="titre" />
+  </div>
+  
+  <input type="hidden" name="id" [(ngModel)]="etape.id">
+  <input type="hidden" name="id_recette" [(ngModel)]="etape.id_recette">
+ 
+  
+  <button type="submit" class="btn mt-3 btn-primary">Ajouter</button>
+</form>
+
+<h2>Listes des etapes</h2>
+<table class="table table-dark table-striped w-75 mx-auto">
+    <thead>
+    <tr>
+        <th>Etape</th>
+        <th class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let etape of etapes">
+    
+        <tr>
+            <td>{{ etape.titre }} </td>
+            <td class="text-center">
+               
+                <a (click)="delete(etape.id)" onclick="return confirm('Etes-vous sûr?')"
+                   class="btn btn-outline-danger">Supprimer</a>
+            </td>
+        </tr>
+    
+    </tbody>
+</table>
+<a [routerLink]="['/listRecipe/']" class="btn btn-outline-info">Retour</a>

@@ -1,0 +1,41 @@
+<div class="form-group">
+    <div class="container">
+      <div class="row d-flex justify-content-between">
+        <div
+         
+          class="p-0 m-3 card col-md-4 mt-3"
+          style="width: 28rem"
+        >
+          <img src="{{ recette.photo }}" class="card-img-top" alt="..." />
+        
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ recette.titre }}</h5>
+          
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ recette.description }}</h5>
+          
+          </div>
+          <div class="text-center">
+     
+          <h4>pour {{nbPersonne}} personne(s)</h4>
+
+          <button (click)="nbPersonne =nbPersonne -1" class="m-2 btn btn-secondary"> -</button>
+       
+          <button (click)="nbPersonne =nbPersonne +1" class="m-2 btn btn-secondary"> +</button>
+      
+          <div class="card-body">
+            <ul>
+                <li *ngFor="let ingredient of ingredients">
+                    {{ingredient.quantite | quantity:nbPersonne}} {{ingredient.unite | lowercase}} {{ingredient.nom | uppercase}}
+                </li>
+                Cout :{{ cout| total:nbPersonne | euro}}  
+            </ul>
+          
+          </div>
+           
+        </div>
+      </div>
+    </div>
+   
+ 

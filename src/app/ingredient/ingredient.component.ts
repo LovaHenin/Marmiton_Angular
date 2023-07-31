@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,EventEmitter,OnInit,Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class IngredientComponent implements OnInit {
   ) {}
   id: any;
   action:any;
-   ingredients:any;
+  ingredients:any;
   ingredient = {
     id:0,
     titre: '',
@@ -37,7 +37,7 @@ export class IngredientComponent implements OnInit {
      });
      
         // gerer le routage => apres ajout recette => vers la listeRecipe=>il faut ajouter la variable private router:Router dans constructor
-        this.router.navigate(['listeIngredients']);
+        this.router.navigate(['listRecipe']);
         //console.log(test);
   }
 
@@ -67,4 +67,5 @@ export class IngredientComponent implements OnInit {
       this.id=0;
     }
   }
+
 }

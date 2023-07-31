@@ -21,6 +21,19 @@ if(id!=null){
 }
 }
 
+getDataFavori(table:string):Observable<any>{
+   
+
+    return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readFavoris');
+  
+  }
+
+  getDataPipe(table:string,id:any=null):Observable<any>{
+   
+
+    return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readPipe&id=' +id);
+  
+  }
 // comme fetch et fecthAll
 getDataIngredient(table:string,id:any=null):Observable<any>{
    
@@ -33,7 +46,16 @@ getDataIngredient(table:string,id:any=null):Observable<any>{
   }
   }
 
-
+  getDataEtape(table:string,id:any=null):Observable<any>{
+   
+    if(id!=null){
+      return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readEtapes&id='+id);
+    
+    }else{
+    
+      return this.http.get('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=readAll');
+    }
+    }
 
   deleteData(table:string,id:any):Observable<any>{
  return this.http.post('http://localhost/marmiton/src/app/services/API/' + table +'.php?action=delete&id='+id, {});

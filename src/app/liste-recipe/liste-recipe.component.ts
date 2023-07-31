@@ -39,7 +39,7 @@ export class ListeRecipeComponent {
     this.getData();
 
    //console.log(this.ingredients);
-   this.getIngredients();
+   //this.getIngredients();
 
   }
 
@@ -62,13 +62,13 @@ export class ListeRecipeComponent {
     });
   }
 
- getIngredients(){
-  this.http.getDataIngredient("ingredient",2).subscribe({
-    next:(data)=> this.ingredients=data,
-    error:(err:Error)=>console.error('Observer got an error:' +err),
-    complete:()=>console.log('Observer got a complete notification' )
-  });
- }
+//  getIngredients(){
+//   this.http.getDataIngredient("ingredient",2).subscribe({
+//     next:(data)=> this.ingredients=data,
+//     error:(err:Error)=>console.error('Observer got an error:' +err),
+//     complete:()=>console.log('Observer got a complete notification' )
+//   });
+//  }
   
 
 }

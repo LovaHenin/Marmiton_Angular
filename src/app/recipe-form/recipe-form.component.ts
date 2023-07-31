@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpService } from '../services/API/http.service';
+import { IngredientEnfantComponent } from '../ingredient-enfant/ingredient-enfant.component';
 
 @Component({
   selector: 'app-recipe-form',
@@ -30,11 +31,25 @@ export class RecipeFormComponent {
     tempscuisson: '',
     cout: '',
     photo: '',
+    favori:'',
   };
+// pour ingredient enfant
+ingredients:Array<any>=[];
+
+addIngr(event:any){
+this.ingredients.push({
+unite:event.unite,
+quantite:event.quantite,
+nom :event.nom,
+
+});
+}
+
 
   formulaire(form: NgForm) {
     //tester  le retour de form
-    //console.log(form.value);
+    console.log(form.value);
+  
     // return console.log(id);
   
  this.http.postData("recette",form.value).subscribe({
